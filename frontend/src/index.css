@@ -1,0 +1,110 @@
+/* UrbanAir — Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --bg:        #050810;
+  --bg2:       #090d1a;
+  --bg3:       #0d1224;
+  --bg4:       #111828;
+  --border:    #1e2a3d;
+  --border2:   #253347;
+  --text:      #e8edf5;
+  --text2:     #8899b4;
+  --text3:     #4a5a73;
+  --accent:    #00d4ff;
+  --accent2:   #0099cc;
+  --green:     #00ff88;
+  --green2:    #00cc6a;
+  --orange:    #ff8c00;
+  --red:       #ff3366;
+  --purple:    #8b5cf6;
+  --yellow:    #ffd700;
+  --card-bg:   rgba(13, 18, 36, 0.95);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text3); }
+
+/* Mono font utility */
+.mono { font-family: 'JetBrains Mono', monospace; }
+
+/* Card base */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+}
+
+/* Pulse animation */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.7); }
+}
+
+@keyframes spin-ring {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.fade-in   { animation: fade-in 0.4s ease both; }
+.slide-in  { animation: slide-in-right 0.3s ease both; }
+
+/* Leaflet overrides */
+.leaflet-container {
+  background: #070b14 !important;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.leaflet-control-zoom a {
+  background: var(--bg3) !important;
+  color: var(--text2) !important;
+  border-color: var(--border) !important;
+}
+.leaflet-control-zoom a:hover {
+  background: var(--bg4) !important;
+  color: var(--accent) !important;
+}
+.leaflet-popup-content-wrapper {
+  background: var(--bg3) !important;
+  border: 1px solid var(--border2) !important;
+  color: var(--text) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5) !important;
+}
+.leaflet-popup-tip { background: var(--bg3) !important; }
+.leaflet-popup-content { margin: 12px 16px !important; font-family: 'Space Grotesk', sans-serif; }
+.leaflet-attribution-flag { display: none !important; }
+
+/* Recharts overrides */
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background: var(--bg3) !important;
+  border: 1px solid var(--border2) !important;
+  border-radius: var(--radius-sm) !important;
+}
