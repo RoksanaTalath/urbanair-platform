@@ -4,7 +4,10 @@ All configuration via environment variables with safe defaults.
 Copy .env.example to .env and fill in your values.
 """
 import os
+from dotenv import load_dotenv
 from typing import List
+
+load_dotenv()
 
 
 class Settings:
